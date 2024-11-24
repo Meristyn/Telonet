@@ -1,0 +1,18 @@
+---
+interface Props {
+	title: string;
+	body: string;
+	href: string;
+	colspan: string;
+}
+
+const { href, title, body, colspan } = Astro.props;
+const classData = `${colspan} h-52 px-3 py-5 flex flex-col items-start justify-end bg-gradient-to-t from-orange-700 via-transparent to-transparent rounded-xl`;
+---
+
+<a href={href}>
+	<article class={classData}>
+		<h2 class="text-lg font-bold">{title}</h2>
+		<p class="text-sm">{body}</p>
+	</article>
+</a>

@@ -1,0 +1,38 @@
+---
+import DashboardLayout from "../../../layouts/DashboardLayout.astro";
+import ContentQuery from "../../../components/ContentQuery.astro";
+---
+
+<DashboardLayout title="Facturación">
+	<section>
+		<ContentQuery
+			title="Facturación total por cada método de pago"
+			query={`CALL FacturacionPorMetodoPago();`}
+		/>
+
+		<ContentQuery
+			title="Total de ingresos por servicios en la facturación"
+			query={`CALL IngresosPorServicios();`}
+		/>
+
+		<ContentQuery
+			title="Detalles de facturación de eventos"
+			query={`CALL GetFacturacionEventos();`}
+		/>
+
+		<ContentQuery
+			title="Monto total pagado por reserva"
+			query={`CALL GetTotalPagadoPorReserva();`}
+		/>
+
+		<ContentQuery
+			title="Facturación por hotel"
+			query={`CALL GetTotalFacturacionPorHotel();`}
+		/>
+
+		<ContentQuery
+			title="Ingresos por mes en facturación"
+			query={`CALL GetIngresosMensuales();`}
+		/>
+	</section>
+</DashboardLayout>

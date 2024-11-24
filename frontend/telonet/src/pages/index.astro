@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "./dashboard/components/hero.astro";
+---
+
+<Layout title="Bienvenido a telonet.">
+	<main>
+		<div
+			class="hero min-h-screen"
+			style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);">
+			<div class="hero-overlay bg-opacity-60"></div>
+			<div class="hero-content text-neutral-content text-center">
+				<div class="max-w-md">
+					<h1 class="mb-5 text-5xl font-bold">Telonet</h1>
+					<p class="mb-5">
+						Tu oasis de descanso, donde cada detalle está diseñado para transformar tu estadía en una experiencia inolvidable.
+					</p>
+					<a href="clients" class="btn btn-primary">Reservar</a>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>

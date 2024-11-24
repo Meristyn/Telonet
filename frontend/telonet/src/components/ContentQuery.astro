@@ -1,0 +1,15 @@
+---
+interface Props {
+	title: string;
+	query: string;
+}
+
+const { title, query } = Astro.props;
+import Makequerys from "../core/makequerys";
+---
+
+<section
+	class="px-5 w-full py-5 flex flex-row justify-between items-center gap-4 hover:bg-base-200">
+	<h2 class="font-semibold text-xl">{title}</h2>
+	<Makequerys query={query} client:load />
+</section>

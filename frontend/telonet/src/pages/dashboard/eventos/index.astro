@@ -1,0 +1,33 @@
+---
+import DashboardLayout from "../../../layouts/DashboardLayout.astro";
+import ContentQuery from "../../../components/ContentQuery.astro";
+---
+
+<DashboardLayout title="Eventos">
+	<section>
+		<ContentQuery
+			title="Eventos y su número de asistentes"
+			query={`CALL EventosConAsistentes();`}
+		/>
+
+		<ContentQuery
+			title="Detalles de facturación de eventos"
+			query={`CALL GetFacturacionPorEvento();`}
+		/>
+
+		<ContentQuery
+			title="Eventos y el promedio de asistentes"
+			query={`CALL GetPromedioAsistentesPorEvento();`}
+		/>
+
+		<ContentQuery
+			title="Promociones activas en eventos"
+			query={`CALL GetPromocionesActivasPorEvento();`}
+		/>
+
+		<ContentQuery
+			title="Ingresos totales por cada evento"
+			query={`CALL GetIngresosTotalesPorEvento();`}
+		/>
+	</section>
+</DashboardLayout>

@@ -1,0 +1,27 @@
+---
+import DashboardLayout from "../../../layouts/DashboardLayout.astro";
+import ContentQuery from "../../../components/ContentQuery.astro";
+---
+
+<DashboardLayout title="Clientes">
+	<section>
+		<ContentQuery
+			title="Listado de clientes y su nacionalidad"
+			query="CALL ListadoClientesNacionalidad();"
+		/>
+	</section>
+
+	<section>
+		<ContentQuery
+			title="Clientes con más de una reserva"
+			query={`CALL GetClientesConMasDeUnaReserva();`}
+		/>
+	</section>
+
+	<section>
+		<ContentQuery
+			title="Clientes con facturas pendientes"
+			query={`CALL ClientesConFacturasPendientes();`}
+		/>
+	</section>
+</DashboardLayout>

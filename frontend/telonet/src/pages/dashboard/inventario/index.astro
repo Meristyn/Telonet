@@ -1,0 +1,22 @@
+---
+import DashboardLayout from "../../../layouts/DashboardLayout.astro";
+import ContentQuery from "../../../components/ContentQuery.astro";
+---
+
+<DashboardLayout title="Inventario">
+	<section>
+		<ContentQuery
+			title="Artículos con más de 50 unidades en el inventario"
+			query={`CALL InventarioMayorA50();`}
+		/>
+		<ContentQuery
+			title="Artículos en inventario por proveedor"
+			query={`CALL GetInventarioPorProveedor();`}
+		/>
+
+		<ContentQuery
+			title="Servicios disponibles"
+			query="CALL GetServiciosDisponibles();"
+		/>
+	</section>
+</DashboardLayout>

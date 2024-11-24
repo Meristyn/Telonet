@@ -1,0 +1,28 @@
+---
+import DashboardLayout from "../../../layouts/DashboardLayout.astro";
+import ContentQuery from "../../../components/ContentQuery.astro";
+---
+
+<DashboardLayout title="Hoteles y Habitaciones">
+	<section>
+		<ContentQuery
+			title="Promociones activas aplicadas en hoteles"
+			query={`CALL PromocionesActivasHoteles();`}
+		/>
+
+		<ContentQuery
+			title="Lista de habitaciones ocupadas por hotel"
+			query={`CALL GetHabitacionesOcupadasPorHotel();`}
+		/>
+
+		<ContentQuery
+			title="Habitaciones en mantenimiento"
+			query={`CALL GetHabitacionesEnMantenimiento();`}
+		/>
+
+		<ContentQuery
+			title="Cantidad de promociones por hotel"
+			query={`CALL GetPromocionesTotalesPorHotel();`}
+		/>
+	</section>
+</DashboardLayout>
