@@ -25,7 +25,7 @@ const RegistroForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3001/api/registro', formData);
+            const response = await axios.post('http://localhost:4321//api/registro', formData);
             alert(response.data.message); // Mostrar mensaje de éxito
         } catch (err) {
             if (err.response && err.response.status === 400) {

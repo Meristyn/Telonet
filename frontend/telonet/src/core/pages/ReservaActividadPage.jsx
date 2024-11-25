@@ -17,7 +17,7 @@ export default function ReservaActividadPage() {
 
     const fetchReservasActividad = () => {
         const idCliente = localStorage.getItem('id_cliente'); // Obtener el ID del cliente
-        axios.get(`http://localhost:3001/api/reservas_actividad?cliente_id=${idCliente}`) // Solicitud para obtener las reservas de actividad
+        axios.get(`http://localhost:4321//api/reservas_actividad?cliente_id=${idCliente}`) // Solicitud para obtener las reservas de actividad
             .then(response => {
                 setReservasActividad(response.data);
             })
@@ -36,7 +36,7 @@ export default function ReservaActividadPage() {
         const idCliente = localStorage.getItem('id_cliente');
         const reservaData = { ...newReservaActividad, id_cliente: idCliente };
 
-        axios.post('http://localhost:3001/api/agregar_reserva_actividad', reservaData)
+        axios.post('http://localhost:4321//api/agregar_reserva_actividad', reservaData)
             .then(response => {
                 setMessage('Reserva de actividad agregada exitosamente');
                 fetchReservasActividad(); // Actualizar la lista de reservas de actividad

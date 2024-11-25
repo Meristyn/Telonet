@@ -15,7 +15,7 @@ export default function ClientesPage() {
 
     const fetchClientes = () => {
         setIsLoading(true);
-        axios.get('http://localhost:3001/api/clientes')
+        axios.get('http://localhost:4321//api/clientes')
             .then(response => {
                 setClientes(response.data);
                 setIsLoading(false);
@@ -28,7 +28,7 @@ export default function ClientesPage() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:3001/api/agregar_cliente', formData)
+        axios.post('http://localhost:4321//api/agregar_cliente', formData)
             .then(() => {
                 setFormData({
                     nombre: '', apellido: '', correo: '', nacionalidad: '', contrasena: '', fecha_nacimiento: '', dni: ''

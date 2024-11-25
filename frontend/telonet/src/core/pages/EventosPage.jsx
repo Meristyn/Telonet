@@ -11,7 +11,7 @@ export default function EventosPage() {
     }, []);
 
     const fetchEventos = () => {
-        axios.get('http://localhost:3001/api/eventos')
+        axios.get('http://localhost:4321//api/eventos')
             .then(response => {
                 setEventos(response.data);
             })

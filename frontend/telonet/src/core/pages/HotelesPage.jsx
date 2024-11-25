@@ -10,7 +10,7 @@ export default function HotelesPage() {
     }, []);
 
     const fetchHoteles = () => {
-        axios.get('http://localhost:3001/api/hoteles')
+        axios.get('http://localhost:4321//api/hoteles')
             .then(response => {
                 setHoteles(response.data);
             })

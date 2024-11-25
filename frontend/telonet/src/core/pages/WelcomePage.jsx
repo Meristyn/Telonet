@@ -19,7 +19,7 @@ export default function WelcomePage() {
 
         // Obtener datos del perfil del usuario que inició sesión
         if (id_cliente) {
-            axios.get(`http://localhost:3001/api/obtener_perfil?id_cliente=${id_cliente}`)
+            axios.get(`http://localhost:4321//api/obtener_perfil?id_cliente=${id_cliente}`)
                 .then(response => {
                     setProfileData(response.data);
                 })

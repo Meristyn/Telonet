@@ -22,7 +22,7 @@ export default function UpdateProfile() {
         const id_cliente = localStorage.getItem('id_cliente');
         if (id_cliente) {
             // Obtener datos del perfil del usuario que inició sesión cuando el componente se monta
-            axios.get(`http://localhost:3001/api/obtener_perfil?id_cliente=${id_cliente}`, { withCredentials: true })
+            axios.get(`http://localhost:4321//api/obtener_perfil?id_cliente=${id_cliente}`, { withCredentials: true })
                 .then(response => {
                     setProfileData({ ...response.data, id_cliente });
                 })
@@ -40,7 +40,7 @@ export default function UpdateProfile() {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Enviar datos actualizados al backend
-        axios.put('http://localhost:3001/api/profile', profileData, { withCredentials: true })
+        axios.put('http://localhost:4321//api/profile', profileData, { withCredentials: true })
             .then(response => {
                 setMessage('Perfil actualizado exitosamente');
             })

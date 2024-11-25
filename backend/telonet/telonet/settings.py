@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'telonet.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # Usamos el backend de MySQL
-        'NAME': 'telonet',  # El nombre de la base de datos que has creado en MySQL
+        'NAME': 'telonet3',  # El nombre de la base de datos que has creado en MySQL
         'USER': 'root',  # El usuario de la base de datos (si usas 'root', o el que hayas creado)
         'PASSWORD': '1234',  # La contraseña del usuario de la base de datos
         'HOST': 'localhost',  # Si MySQL está corriendo localmente, usa 'localhost'

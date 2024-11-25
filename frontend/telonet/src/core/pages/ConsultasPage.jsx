@@ -32,7 +32,7 @@ export default function ConsultasPage() {
         }
 
         // Realizar la búsqueda al backend
-        axios.get('http://localhost:3001/api/consultas', {
+        axios.get('http://localhost:4321//api/consultas', {
             params: { table, searchParams: JSON.stringify(validParams) }
         })
             .then(response => {

@@ -10,7 +10,7 @@ export default function ServiciosPage() {
     }, []);
 
     const fetchServicios = () => {
-        axios.get('http://localhost:3001/api/servicios') // Asegúrate de que el backend tiene esta ruta configurada
+        axios.get('http://localhost:4321//api/servicios') // Asegúrate de que el backend tiene esta ruta configurada
             .then(response => {
                 setServicios(response.data);
             })

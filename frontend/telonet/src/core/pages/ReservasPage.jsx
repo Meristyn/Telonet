@@ -20,7 +20,7 @@ export default function ReservaPage() {
 
     const fetchReservas = () => {
         const idCliente = localStorage.getItem('id_cliente'); // Obtener el ID del cliente
-        axios.get(`http://localhost:3001/api/reservas?cliente_id=${idCliente}`) // Solicitud para obtener las reservas
+        axios.get(`http://localhost:4321//api/reservas?cliente_id=${idCliente}`) // Solicitud para obtener las reservas
             .then(response => {
                 setReservas(response.data);
             })
@@ -39,7 +39,7 @@ export default function ReservaPage() {
         const idCliente = localStorage.getItem('id_cliente');
         const reservaData = { ...newReserva, id_cliente: idCliente };
 
-        axios.post('http://localhost:3001/api/agregar_reserva', reservaData)
+        axios.post('http://localhost:4321//api/agregar_reserva', reservaData)
             .then(response => {
                 setMessage('Reserva agregada exitosamente');
                 fetchReservas(); // Actualizar la lista de reservas
