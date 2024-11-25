@@ -7,16 +7,24 @@ import ContentQuery from "../../../components/ContentQuery.astro";
 	<section>
 		<ContentQuery
 			title="Artículos con más de 50 unidades en el inventario"
-			query={`CALL InventarioMayorA50();`}
+			query={`SELECT nombre_articulo, cantidad
+				FROM inventario
+				HAVING cantidad > 50;`}
 		/>
 		<ContentQuery
 			title="Artículos en inventario por proveedor"
-			query={`CALL GetInventarioPorProveedor();`}
+			query={`SELECT p.nombre AS proveedor, i.nombre_articulo, i.cantidad
+				FROM proveedor p
+				JOIN inventario i ON p.id_proveedor = i.id_proveedor_Proveedor;`}
 		/>
 
 		<ContentQuery
-			title="Servicios disponibles"
-			query="CALL GetServiciosDisponibles();"
+			title="Proveedores con más de un cliente asociado"
+			query={`SELECT p.nombre, COUNT(cp.id_cliente_Cliente) AS total_clientes
+				FROM proveedor p
+				JOIN cliente_proveedor cp ON p.id_proveedor = cp.id_proveedor_Proveedor
+				GROUP BY p.id_proveedor
+				HAVING total_clientes > 1;`}
 		/>
 	</section>
 </DashboardLayout>

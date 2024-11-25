@@ -1,0 +1,135 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('../../public/img/hotel-background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+}
+
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Asegurarse de que el fondo esté detrás de todo */
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.85);
+    /* Fondo negro con transparencia del 85% */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    width: 350px;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    /* Asegurar que esté por encima del fondo */
+    z-index: 10;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-container input[type="email"],
+.input-container input[type="password"] {
+    width: calc(100% - 40px);
+    padding: 10px 10px 10px 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Transparente */
+    color: #ffffff;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    /* Transición añadida */
+}
+
+.input-container input[type="email"]:focus,
+.input-container input[type="password"]:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(230, 0, 35, 0.5);
+    /* Resaltar con un borde más visible */
+    outline: none;
+}
+
+.input-container .icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #e60023;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
+    /* Espacio añadido para separar del contenido superior */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Transición añadida */
+}
+
+button:hover {
+    background-color: #c2001a;
+    transform: translateY(-2px);
+    /* Efecto de elevación al pasar el ratón */
+}
+
+.register-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.register-link a {
+    color: #e60023;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Checkbox and label styling */
+.remember-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.remember-container label {
+    color: #ffffff;
+}
+
+.remember-container a {
+    color: #e60023;
+    text-decoration: none;
+}
+
+.remember-container a:hover {
+    text-decoration: underline;
+}

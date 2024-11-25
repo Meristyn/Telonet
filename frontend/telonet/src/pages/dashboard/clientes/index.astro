@@ -7,21 +7,29 @@ import ContentQuery from "../../../components/ContentQuery.astro";
 	<section>
 		<ContentQuery
 			title="Listado de clientes y su nacionalidad"
-			query="CALL ListadoClientesNacionalidad();"
+			query="SELECT nombre, apellido, nacionalidad FROM cliente;"
 		/>
 	</section>
 
 	<section>
 		<ContentQuery
 			title="Clientes con más de una reserva"
-			query={`CALL GetClientesConMasDeUnaReserva();`}
+			query={`SELECT c.nombre, c.apellido, COUNT(r.id_reserva) AS reservas_totales
+				FROM cliente c
+				JOIN reserva r ON c.id_cliente = r.id_cliente_Cliente
+				GROUP BY c.id_cliente
+				HAVING reservas_totales > 1;`}
 		/>
 	</section>
 
 	<section>
 		<ContentQuery
 			title="Clientes con facturas pendientes"
-			query={`CALL ClientesConFacturasPendientes();`}
+			query={`SELECT c.nombre, c.apellido
+				FROM cliente c
+				JOIN reserva r ON c.id_cliente = r.id_cliente_Cliente
+				JOIN facturacion f ON f.id_reserva_Reserva = r.id_reserva
+				WHERE f.estado = 'Pendiente';`}
 		/>
 	</section>
 </DashboardLayout>

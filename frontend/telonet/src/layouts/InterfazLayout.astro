@@ -1,0 +1,33 @@
+---
+import Sidebar from "../core/pages/Sidebar";
+import NavBar from "../core/pages/NavBar";
+---
+
+<div class="layout">
+	<NavBar client:load />
+	<!-- Barra de navegación en la parte superior -->
+	<div class="main-content">
+		<Sidebar client:load />
+		<!-- Barra lateral -->
+		<main class="content">
+			<slot />
+			<!-- Aquí se inserta el contenido de la página específica -->
+		</main>
+	</div>
+</div>
+
+<style>
+	.layout {
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+	}
+	.main-content {
+		display: flex;
+		flex: 1;
+	}
+	.content {
+		flex: 1;
+		padding: 20px;
+	}
+</style>

@@ -1,0 +1,329 @@
+/* Estilos para centrar el contenido principal y evitar la barra lateral */
+.main-content {
+    margin-left: 340px;
+    /* Deja espacio para la barra lateral */
+    width: 900px;
+    /* Ajustar el ancho para ocupar más espacio */
+    min-height: 80vh;
+    /* Ajustar para que sea un poco menos alto */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    /* Asegura que el contenido comience desde la parte superior del recuadro */
+    position: relative;
+    z-index: 1;
+    /* Asegura que el contenido esté por encima de la barra lateral */
+    margin: 20px auto;
+    /* Centra el contenido horizontalmente */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+}
+
+.main-content h1,
+.main-content p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Ajustar el contenido principal para no superponerse con la barra lateral */
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* Asegura que el contenido esté centrado en la pantalla independientemente del tamaño */
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url('/img/b2.png');
+    /* Añadir imagen de fondo para toda la página */
+    background-size: cover;
+    background-position: center;
+}
+
+.sidebar {
+    z-index: 2;
+    /* Asegura que la barra lateral esté en un nivel adecuado para evitar superposición */
+    min-height: 70vh;
+    /* Misma altura que el contenido principal */
+    width: 240px;
+    /* Un poco más pequeño */
+    margin: 20px;
+    /* Añadir espacio para que no esté pegado al borde */
+    background: linear-gradient(135deg, rgba(50, 0, 0, 0.9), rgba(30, 0, 0, 0.9));
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    padding-top: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+}
+
+.sidebar-menu li a {
+    font-size: 14px;
+    /* Hacer las letras más pequeñas */
+}
+
+.hotel-card,
+.event-card {
+    width: calc(40% - 20px);
+    /* Ajuste para dos columnas */
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 10px;
+}
+
+.hotel-card img,
+.event-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.hotel-list,
+.event-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* promociones-table.css */
+.promociones-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+}
+
+.promociones-table th,
+.promociones-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.promociones-table th {
+    background-color: #6d1322;
+    color: #fcf9f9;
+    font-weight: bold;
+}
+
+.promociones-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.promociones-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.promociones-table td {
+    font-size: 14px;
+    color: #333;
+}
+
+/* ServiciosTableStyles.css */
+
+/* General table styles for the servicios table */
+.servicios-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+}
+
+.servicios-table th,
+.servicios-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.servicios-table th {
+    background-color: #6d1322;
+    color: #fcf9f9;
+    font-weight: bold;
+}
+
+.servicios-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.servicios-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.servicios-table td {
+    font-size: 14px;
+    color: #333;
+}
+
+/* ServiciosTableStyles.css */
+
+/* General table styles for the reservas table */
+.reservas-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+}
+
+.reservas-table th,
+.reservas-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.reservas-table th {
+    background-color: #f2b779;
+    color: #000;
+    font-weight: bold;
+}
+
+.reservas-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.reservas-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.reservas-table td {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Estilos para la tabla de reservas */
+.reservas-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.reservas-table th,
+.reservas-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.reservas-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.reservas-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos para el formulario de agregar reserva */
+.add-reserva-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+}
+
+.add-reserva-form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.add-reserva-form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-reserva-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.add-reserva-form button:hover {
+    background-color: #45a049;
+}
+
+.message {
+    text-align: center;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Estilo específico para el título de bienvenida */
+.welcome-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo específico para los párrafos de información del perfil */
+.profile-info {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Estilo específico para resaltar información importante dentro de los párrafos */
+.profile-info span {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Estilo para el contenedor de información del perfil */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+/* Estilo para cada campo del perfil */
+.profile-field {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #444;
+}
+
+/* Estilo para el encabezado de cada campo del perfil */
+.profile-field-label {
+    font-weight: bold;
+    color: #222;
+}

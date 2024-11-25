@@ -1,0 +1,26 @@
+---
+import RegistroForm from "../../core/pages/RegistroForm";
+
+// Define la función para manejar el éxito del registro
+function handleRegisterSuccess() {
+	window.location.href = "/login"; // Redirigir al usuario a la página de login después de un registro exitoso
+}
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Registro</title>
+		<link rel="stylesheet" href="/styles.css" />
+	</head>
+	<body>
+		<div class="registro-container">
+			<RegistroForm
+				client:only="react"
+				onRegisterSuccess={handleRegisterSuccess}
+			/>
+		</div>
+	</body>
+</html>

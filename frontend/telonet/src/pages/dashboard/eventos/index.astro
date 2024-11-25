@@ -7,27 +7,44 @@ import ContentQuery from "../../../components/ContentQuery.astro";
 	<section>
 		<ContentQuery
 			title="Eventos y su número de asistentes"
-			query={`CALL EventosConAsistentes();`}
+			query={`SELECT e.nombre, SUM(re.cantidad_asistente) AS total_asistentes
+				FROM evento e
+				JOIN reserva_evento re ON e.id_evento = re.id_evento_Evento
+				GROUP BY e.id_evento;`}
 		/>
 
 		<ContentQuery
 			title="Detalles de facturación de eventos"
-			query={`CALL GetFacturacionPorEvento();`}
+			query={`SELECT e.nombre AS evento, f.fecha_emision, f.monto_total
+				FROM facturacion f
+				JOIN reserva_evento re ON f.id_reserva_evento_Reserva_evento = re.id_reserva_evento
+				JOIN evento e ON re.id_evento_Evento = e.id_evento;`}
 		/>
 
 		<ContentQuery
 			title="Eventos y el promedio de asistentes"
-			query={`CALL GetPromedioAsistentesPorEvento();`}
+			query={`SELECT e.nombre, AVG(re.cantidad_asistente) AS promedio_asistentes
+				FROM evento e
+				JOIN reserva_evento re ON e.id_evento = re.id_evento_Evento
+				GROUP BY e.id_evento;`}
 		/>
 
 		<ContentQuery
 			title="Promociones activas en eventos"
-			query={`CALL GetPromocionesActivasPorEvento();`}
+			query={`SELECT e.nombre AS evento, p.nombre_promo
+				FROM promociones p
+				JOIN hotel_promociones hp ON p.id_promocion = hp.id_promocion_Promociones
+				JOIN hotel_seccion hs ON hp.id_hotel_Hotel = hs.id_hotel_Hotel
+				JOIN evento e ON hs.id_evento_Evento = e.id_evento
+				WHERE p.area_aplicacion = 'Eventos' AND p.estado = 'Activo';`}
 		/>
 
 		<ContentQuery
 			title="Ingresos totales por cada evento"
-			query={`CALL GetIngresosTotalesPorEvento();`}
+			query={`SELECT e.nombre, SUM(re.monto_total) AS ingresos_totales
+				FROM evento e
+				JOIN reserva_evento re ON e.id_evento = re.id_evento_Evento
+				GROUP BY e.id_evento;`}
 		/>
 	</section>
 </DashboardLayout>

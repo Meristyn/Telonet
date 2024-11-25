@@ -7,32 +7,50 @@ import ContentQuery from "../../../components/ContentQuery.astro";
 	<section>
 		<ContentQuery
 			title="Facturación total por cada método de pago"
-			query={`CALL FacturacionPorMetodoPago();`}
+			query={`SELECT metodo_pago, SUM(monto_total) AS total_facturado
+				FROM facturacion
+				GROUP BY metodo_pago;`}
 		/>
 
 		<ContentQuery
 			title="Total de ingresos por servicios en la facturación"
-			query={`CALL IngresosPorServicios();`}
+			query={`SELECT s.nombre AS servicio, SUM(f.monto_total) AS total_ingreso
+				FROM servicio s
+				JOIN facturacion f ON s.id_servicio = f.id_servicio_Servicio
+				GROUP BY s.id_servicio;`}
 		/>
 
 		<ContentQuery
 			title="Detalles de facturación de eventos"
-			query={`CALL GetFacturacionEventos();`}
+			query={`SELECT e.nombre AS evento, f.fecha_emision, f.monto_total
+				FROM facturacion f
+				JOIN reserva_evento re ON f.id_reserva_evento_Reserva_evento = re.id_reserva_evento
+				JOIN evento e ON re.id_evento_Evento = e.id_evento;`}
 		/>
 
 		<ContentQuery
 			title="Monto total pagado por reserva"
-			query={`CALL GetTotalPagadoPorReserva();`}
+			query={`SELECT r.id_reserva, SUM(f.monto_total) AS total_pagado
+				FROM reserva r
+				JOIN facturacion f ON r.id_reserva = f.id_reserva_Reserva
+				GROUP BY r.id_reserva;`}
 		/>
 
 		<ContentQuery
 			title="Facturación por hotel"
-			query={`CALL GetTotalFacturacionPorHotel();`}
+			query={`SELECT h.nombre AS hotel, SUM(f.monto_total) AS total_facturacion
+				FROM hotel h
+				JOIN habitacion ha ON h.id_hotel = ha.id_hotel_Hotel
+				JOIN reserva r ON ha.id_reserva_Reserva = r.id_reserva
+				JOIN facturacion f ON r.id_reserva = f.id_reserva_Reserva
+				GROUP BY h.id_hotel;`}
 		/>
 
 		<ContentQuery
 			title="Ingresos por mes en facturación"
-			query={`CALL GetIngresosMensuales();`}
+			query={`SELECT MONTH(fecha_emision) AS mes, SUM(monto_total) AS ingresos
+				FROM facturacion
+				GROUP BY mes;`}
 		/>
 	</section>
 </DashboardLayout>

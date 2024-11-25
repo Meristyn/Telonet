@@ -7,22 +7,45 @@ import ContentQuery from "../../../components/ContentQuery.astro";
 	<section>
 		<ContentQuery
 			title="Promociones activas aplicadas en hoteles"
-			query={`CALL PromocionesActivasHoteles();`}
+			query={`SELECT h.nombre AS hotel, p.nombre_promo AS promocion, p.estado
+				FROM hotel h
+				JOIN hotel_promociones hp ON h.id_hotel = hp.id_hotel_Hotel
+				JOIN promociones p ON hp.id_promocion_Promociones = p.id_promocion
+				WHERE p.estado = 'Activo';`}
+		/>
+
+		<ContentQuery
+			title="Facturación por hotel"
+			query={`SELECT h.nombre AS hotel, SUM(f.monto_total) AS total_facturacion
+				FROM hotel h
+				JOIN habitacion ha ON h.id_hotel = ha.id_hotel_Hotel
+				JOIN reserva r ON ha.id_reserva_Reserva = r.id_reserva
+				JOIN facturacion f ON r.id_reserva = f.id_reserva_Reserva
+				GROUP BY h.id_hotel;`}
 		/>
 
 		<ContentQuery
 			title="Lista de habitaciones ocupadas por hotel"
-			query={`CALL GetHabitacionesOcupadasPorHotel();`}
+			query={`SELECT h.nombre AS hotel, COUNT(ha.id_habitacion) AS habitaciones_ocupadas
+				FROM hotel h
+				JOIN habitacion ha ON h.id_hotel = ha.id_hotel_Hotel
+				WHERE ha.estado = 'Ocupada'
+				GROUP BY h.id_hotel;`}
 		/>
 
 		<ContentQuery
 			title="Habitaciones en mantenimiento"
-			query={`CALL GetHabitacionesEnMantenimiento();`}
+			query={`SELECT nro_habitacion
+				FROM habitacion
+				WHERE estado = 'Mantenimiento';`}
 		/>
 
 		<ContentQuery
 			title="Cantidad de promociones por hotel"
-			query={`CALL GetPromocionesTotalesPorHotel();`}
+			query={`SELECT h.nombre AS hotel, COUNT(hp.id_promocion_Promociones) AS promociones_totales
+				FROM hotel h
+				JOIN hotel_promociones hp ON h.id_hotel = hp.id_hotel_Hotel
+				GROUP BY h.id_hotel;`}
 		/>
 	</section>
 </DashboardLayout>

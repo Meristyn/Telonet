@@ -1,5 +1,7 @@
 # build output
 dist/
+sec/
+tric/
 
 # generated types
 .astro/

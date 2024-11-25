@@ -1,0 +1,46 @@
+---
+import LoginForm from "../../core/pages/LoginForm";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Iniciar Sesión</title>
+		<link rel="stylesheet" href="/src/styles/login.css" />
+		<link rel="stylesheet" href="/src/styles/tailwind.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+			integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM7lx91oTt0LE5gN0QXjBaA7AvHU6RJpd7Kq6zn"
+			crossorigin="anonymous"
+		/>
+	</head>
+	<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+		<div id="root" class="flex items-center justify-center min-h-screen">
+			<div class="login-container">
+				<h2>Iniciar Sesión</h2>
+				<LoginForm client:only="react" />
+			</div>
+		</div>
+	</body>
+</html>
+
+<style>
+	.login-container {
+		background-color: rgba(0, 0, 0, 0.85);
+		padding: 40px;
+		border-radius: 10px;
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+		width: 350px;
+		text-align: center;
+		color: #ffffff;
+	}
+
+	.login-container h2 {
+		margin-bottom: 20px;
+		font-size: 24px;
+		color: #ffffff;
+	}
+</style>

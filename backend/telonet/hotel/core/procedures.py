@@ -9,4 +9,4 @@ def call_procedure(proc_name:str, params:list):
         
         result = cursor.fetchall()
         columns = [col[0] for col in cursor.description]
-        return {"columns": columns, "data": result}
+        return [dict(zip(columns, row)) for row in result]
